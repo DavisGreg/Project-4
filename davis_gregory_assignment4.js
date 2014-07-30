@@ -125,7 +125,7 @@ urlInfo = urlStringCheck(urlInvalid);
 var titleCase;
 
 // Created test string to determine validity
-upperCaseMe = "hello there buddy";
+var upperCaseMe = "hello there buddy";
 
 // Created function for determining test string validity
 var titleStringCheck = function (titleValid) {
@@ -159,4 +159,37 @@ var caseInfo = titleStringCheck(upperCaseMe);
 
 
 // #5 - Separation strings
+
+// Created strings for changing the separator of items in a string
+var oldString;
+var oldSeparator;
+var newSeparator;
+var newString;
+
+// created test strings to determine validity
+oldString = "car, house, family";
+oldSeparator = ", ";
+newSeparator = "/";
+
+// Created function for determining test string validity
+var separatorStringCheck = function (separatorValid) {
+	
+	var findSeparator = separatorValid.indexOf(oldSeparator);
+	var word1 = separatorValid.substring(0, findSeparator);
+	var lastSeparator = separatorValid.lastIndexOf(oldSeparator);
+	var word2 = separatorValid.substring((findSeparator+1), lastSeparator);
+	var endSeparator = separatorValid.length;
+	var word3 = separatorValid.substring((lastSeparator+1), endSeparator);
+	
+	newString = (word1 + newSeparator + word2 + newSeparator + word3);
+	
+	console.log(newString);
+};
+
+// Call string into function
+var newStringCheck = separatorStringCheck(oldString);
+
+
+// #6 - Format number for a certain number of decimal places
+
 
