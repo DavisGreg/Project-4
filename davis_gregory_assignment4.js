@@ -6,7 +6,7 @@
 
 alert("Now viewing Greg Davis's Assignment 4 Project JS");
 
-// 123-456-7890 pattern
+// #1 - 123-456-7890 pattern
 
 // Created strings for determining if the string follows the 000-000-000 pattern
 var stringCheckPhone;
@@ -35,7 +35,7 @@ var phoneCheck = phoneStringCheck(stringCheckPhone);
 var phoneCheck = phoneStringCheck(phoneInvalid);
 
 
-// aaa@bbb.ccc pattern
+// #2 - aaa@bbb.ccc pattern
 
 // Created strings for determining if the string follows the name@domain.com pattern
 var stringCheckEmail;
@@ -46,15 +46,117 @@ var emailValidity;
 stringCheckEmail = "davis.gregory.86@gmail.com";
 emailInvalid = "davisgregory@google";
 
+var atSign = -1;
+var periodSign = -1;
+
 // Created function for determining test strings validity
 var emailStringCheck = function (emailValid) {
 
-	var atSign = emailValid.indexOf("@");
-	var periodSign = emailValid.lastIndexOf(".");
-	var emailCheck = (emailValid.substring(0, atSign) + emailValid.substring(atSign, periodSign))
+	atSign = emailValid.indexOf("@");
+	periodSign = emailValid.lastIndexOf(".");
+	var emailChecked;
+		
+	if (atSign === -1) {
+		var emailCheck = "This is not a valid string for determining a correct email address.";
+		emailChecked = false;
+	}
 	
-	console.log(emailCheck);
+	if (periodSign === -1) {
+		var emailCheck = "This is not a valid string for determining a correct email address.";
+		emailChecked = false;
+	}
+	
+	if ((atSign != 0) && (periodSign !=0)) {
+		var emailCheck = "This is a valid string for determining a correct email address.";
+		emailChecked = true;
+	}
+	
+	if ((atSign === -1) || (periodSign === -1)) {
+		var emailCheck = "This is not a valid string for determining a correct email address.";
+		emailChecked = false;
+	}
+	console.log("This string is " + emailChecked + ": " + emailValid + ": " + emailCheck);
 };
 
+// Call strings into the function
 var email = emailStringCheck(stringCheckEmail);
-var email = emailStringCheck(emailInvalid);
+email = emailStringCheck(emailInvalid);
+
+
+// #3 - http:// or https:// pattern
+
+// Created strings for determining if the string follows the http:// or https:// pattern
+var stringCheckURL1;
+var stringCheckURL2;
+var urlInvalid;
+var urlValidity;
+
+// Created test strings to determine validity
+stringCheckURL1 = "http://www.google.com/";
+stringCheckURL2 = "https://chase.com/";
+urlInvalid = "yahoo.com/";
+
+// Created function for determining test strings validity
+var urlStringCheck = function (urlValid) {
+
+	var hypertext1 = urlValid.indexOf("http://");
+	var hypertext2 = urlValid.indexOf("https://");
+	var urlChecked;
+	
+	if ((hypertext1 === 0) || (hypertext2 ===0)) {
+		var urlCheck = "This is a valid string for determining a correct URL.";
+		urlChecked = true;
+	} else {
+		var urlCheck = "This is not a valid string for determining a correct URL.";
+		urlChecked = false;
+	}
+	console.log("This string is " + urlChecked + ": " + urlValid + ": " + urlCheck);
+};
+
+// Call strings into the function
+var urlInfo = urlStringCheck(stringCheckURL1);
+urlInfo = urlStringCheck(stringCheckURL2);
+urlInfo = urlStringCheck(urlInvalid);
+
+
+// #4 - Title case a string
+
+// Created string for changing beginning letter of words uppercase, while keeping the other letters lowercase
+var titleCase;
+
+// Created test string to determine validity
+upperCaseMe = "hello there buddy";
+
+// Created function for determining test string validity
+var titleStringCheck = function (titleValid) {
+	
+	var titleText = titleValid.charAt(0);
+	var titleSpace = titleValid.indexOf(" ");
+	var lastTitleSpace = titleValid.lastIndexOf(" ");
+	var titleEnd = titleValid.length;
+	var nextTitleText = titleValid.charAt(titleSpace+1);
+	var lastTitleText = titleValid.charAt(lastTitleSpace+1);
+	var lowerText1 = titleValid.substring(1, titleSpace);
+	var lowerText2 = titleValid.substring((titleSpace+2), lastTitleSpace);
+	var lowerText3 = titleValid.substring((lastTitleSpace+2), titleEnd);
+	
+	titleText = titleText.toUpperCase();
+	lowerText1 = lowerText1.toLowerCase();
+	nextTitleText = nextTitleText.toUpperCase();
+	lowerText2 = lowerText2.toLowerCase();
+	lastTitleText = lastTitleText.toUpperCase();
+	lowerText3 = lowerText3.toLowerCase();
+	titleSpace = " ";
+	lastTitleSpace = " ";
+	
+	var newTitleString = titleText + lowerText1 + titleSpace + nextTitleText + lowerText2 + lastTitleSpace + lastTitleText + lowerText3;
+	
+	console.log(newTitleString);
+};
+
+// Call string into function
+var caseInfo = titleStringCheck(upperCaseMe);
+
+
+// #5 - Separation strings
+
