@@ -151,7 +151,7 @@ var titleStringCheck = function (titleValid) {
 	
 	var newTitleString = titleText + lowerText1 + titleSpace + nextTitleText + lowerText2 + lastTitleSpace + lastTitleText + lowerText3;
 	
-	console.log(newTitleString);
+	console.log("Title case new string is: " + newTitleString);
 };
 
 // Call string into function
@@ -183,7 +183,7 @@ var separatorStringCheck = function (separatorValid) {
 	
 	newString = (word1 + newSeparator + word2 + newSeparator + word3);
 	
-	console.log(newString);
+	console.log("The new string is: " + newString);
 };
 
 // Call string into function
@@ -192,4 +192,20 @@ var newStringCheck = separatorStringCheck(oldString);
 
 // #6 - Format number for a certain number of decimal places
 
+// Created strings for determining a number with a decimal, along with a number to use as the amount of decimal places to format to
+var numdecimal;
+var decimalPlaces;
 
+// Created test strings to determine validity
+numDecimal = 7.625008914;
+decimalPlaces = 3;
+
+// Created function for determining test string validity
+	var decimalCheck = function (numberDem, fixedNum) {
+	
+	var newNum = numberDem.toFixed(fixedNum);
+	console.log("The new limited number is: " + newNum);
+};
+
+// Call string to function
+var numCk = decimalCheck(numDecimal, decimalPlaces);
