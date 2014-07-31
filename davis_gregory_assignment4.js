@@ -35,6 +35,7 @@ var phoneCheck = phoneStringCheck(stringCheckPhone);
 var phoneCheck = phoneStringCheck(phoneInvalid);
 
 
+
 // #2 - aaa@bbb.ccc pattern
 
 // Created strings for determining if the string follows the name@domain.com pattern
@@ -83,6 +84,7 @@ var email = emailStringCheck(stringCheckEmail);
 email = emailStringCheck(emailInvalid);
 
 
+
 // #3 - http:// or https:// pattern
 
 // Created strings for determining if the string follows the http:// or https:// pattern
@@ -103,7 +105,7 @@ var urlStringCheck = function (urlValid) {
 	var hypertext2 = urlValid.indexOf("https://");
 	var urlChecked;
 	
-	if ((hypertext1 === 0) || (hypertext2 ===0)) {
+	if ((hypertext1 === 0) || (hypertext2 === 0)) {
 		var urlCheck = "This is a valid string for determining a correct URL.";
 		urlChecked = true;
 	} else {
@@ -117,6 +119,7 @@ var urlStringCheck = function (urlValid) {
 var urlInfo = urlStringCheck(stringCheckURL1);
 urlInfo = urlStringCheck(stringCheckURL2);
 urlInfo = urlStringCheck(urlInvalid);
+
 
 
 // #4 - Title case a string
@@ -158,6 +161,7 @@ var titleStringCheck = function (titleValid) {
 var caseInfo = titleStringCheck(upperCaseMe);
 
 
+
 // #5 - Separation strings
 
 // Created strings for changing the separator of items in a string
@@ -190,6 +194,7 @@ var separatorStringCheck = function (separatorValid) {
 var newStringCheck = separatorStringCheck(oldString);
 
 
+
 // #6 - Format number for a certain number of decimal places
 
 // Created strings for determining a number with a decimal, along with a number to use as the amount of decimal places to format to
@@ -201,7 +206,7 @@ numDecimal = 7.625008914;
 decimalPlaces = 3;
 
 // Created function for determining test string validity
-	var decimalCheck = function (numberDem, fixedNum) {
+var decimalCheck = function (numberDem, fixedNum) {
 	
 	var newNum = numberDem.toFixed(fixedNum);
 	console.log("The new limited number is: " + newNum);
@@ -209,3 +214,52 @@ decimalPlaces = 3;
 
 // Call string to function
 var numCk = decimalCheck(numDecimal, decimalPlaces);
+
+
+
+// #7 Fuzzy-match a number
+
+// Created strings for determining if above or below a number with a certain percent
+var num1;
+var num2;
+var num3;
+
+// Created test strings to determine validity
+num1 = 90;
+num2 = 120;
+num3 = 75;
+
+// Created function for determining test string validity
+var fuzzyNum = function (smallNum, bigNum, percentNum) {
+
+	var number1 = smallNum;
+	var number2 = bigNum;
+	var number3 = percentNum;
+	
+	if (number1 > number2) {
+		fuzzyMessage = "The first number: " + number1 + " is bigger than the second number: " + number2;
+	} else if (number1 < number2) {
+		fuzzyMessage = "The first number: " + number1 + " is smaller than the second number: " + number2;
+	} else {
+		fuzzyMessage = "The first number is equal to the second number.";
+	}
+	
+	percentNumber = (number1 / number2) * 100;
+	
+	if (percentNumber <= number3) {
+		fuzzMessage = number1 + " is within " + percentNumber + "% of " + number2;
+	} else {
+		fuzzMessage = number1 + " is not within " + percentNumber + "% of " + number2;
+	}
+	
+	console.log(fuzzyMessage);
+	console.log(fuzzMessage);
+};
+
+// Call string to function
+var fuzzyCheck = fuzzyNum(num1, num2, num3);
+
+
+
+// #8 - Find number of days & hours difference between 2 dates
+
