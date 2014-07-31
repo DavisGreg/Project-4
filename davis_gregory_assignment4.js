@@ -263,3 +263,28 @@ var fuzzyCheck = fuzzyNum(num1, num2, num3);
 
 // #8 - Find number of days & hours difference between 2 dates
 
+// Created strings for determining math between 2 dates
+var dateTime1;
+var dateTime2;
+
+// Created test strings to determine validity
+dateTime1 = new Date();
+dateTime2 = new Date("July 04, 2014 12:00:00");
+
+// Created function for date math
+var dateCount = function (dateMath1, dateMath2) {
+
+	var dateCounter = dateMath1 - dateMath2;
+	
+	var hours = dateCounter / 3600000;
+	var days = hours / 24;
+	daysWhole = parseInt(days);
+	hoursLeft = (days - daysWhole) * 24;
+	hoursLeft = Math.round(hoursLeft);
+	
+	var dateMessage = "It's been " + daysWhole + " days & " + hoursLeft + " hours from " + dateMath2 + " to " + dateMath1;
+	
+	console.log(dateMessage);
+};
+
+var countedTime = dateCount(dateTime1, dateTime2);
