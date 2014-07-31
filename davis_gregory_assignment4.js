@@ -22,10 +22,10 @@ var phoneStringCheck = function (phoneValid) {
 	
 	if (phoneValid.indexOf("-") === 3 && phoneValid.lastIndexOf("-") === 7) {
 		phoneValidity = true;
-		console.log("This string " + phoneValid + " follows the phone number pattern of 000-000-0000");
+		console.log("#1 - This string " + phoneValid + " follows the phone number pattern of 000-000-0000");
 	} else {
 		phoneValidity = false;
-		console.log("This string " + phoneValid + " does not follow the phone number pattern of 000-000-0000");
+		console.log("#1 - This string " + phoneValid + " does not follow the phone number pattern of 000-000-0000");
 	}
 	console.log(phoneValid + ": " + phoneValidity);
 };
@@ -76,7 +76,7 @@ var emailStringCheck = function (emailValid) {
 		var emailCheck = "This is not a valid string for determining a correct email address.";
 		emailChecked = false;
 	}
-	console.log("This string is " + emailChecked + ": " + emailValid + ": " + emailCheck);
+	console.log("#2 - This string is " + emailChecked + ": " + emailValid + ": " + emailCheck);
 };
 
 // Call strings into the function
@@ -112,7 +112,7 @@ var urlStringCheck = function (urlValid) {
 		var urlCheck = "This is not a valid string for determining a correct URL.";
 		urlChecked = false;
 	}
-	console.log("This string is " + urlChecked + ": " + urlValid + ": " + urlCheck);
+	console.log("#3 - This string is " + urlChecked + ": " + urlValid + ": " + urlCheck);
 };
 
 // Call strings into the function
@@ -154,7 +154,7 @@ var titleStringCheck = function (titleValid) {
 	
 	var newTitleString = titleText + lowerText1 + titleSpace + nextTitleText + lowerText2 + lastTitleSpace + lastTitleText + lowerText3;
 	
-	console.log("Title case new string is: " + newTitleString);
+	console.log("#4 - Title case new string is: " + newTitleString);
 };
 
 // Call string into function
@@ -187,7 +187,7 @@ var separatorStringCheck = function (separatorValid) {
 	
 	newString = (word1 + newSeparator + word2 + newSeparator + word3);
 	
-	console.log("The new string is: " + newString);
+	console.log("#5 - The new string is: " + newString);
 };
 
 // Call string into function
@@ -206,10 +206,11 @@ numDecimal = 7.625008914;
 decimalPlaces = 3;
 
 // Created function for determining test string validity
+// MAKE UP - created number function that was missing in project 3
 var decimalCheck = function (numberDem, fixedNum) {
 	
 	var newNum = numberDem.toFixed(fixedNum);
-	console.log("The new limited number is: " + newNum);
+	console.log("#6 - The new limited number is: " + newNum);
 };
 
 // Call string to function
@@ -237,11 +238,11 @@ var fuzzyNum = function (smallNum, bigNum, percentNum) {
 	var number3 = percentNum;
 	
 	if (number1 > number2) {
-		fuzzyMessage = "The first number: " + number1 + " is bigger than the second number: " + number2;
+		fuzzyMessage = "#7 - The first number: " + number1 + " is bigger than the second number: " + number2;
 	} else if (number1 < number2) {
-		fuzzyMessage = "The first number: " + number1 + " is smaller than the second number: " + number2;
+		fuzzyMessage = "#7 - The first number: " + number1 + " is smaller than the second number: " + number2;
 	} else {
-		fuzzyMessage = "The first number is equal to the second number.";
+		fuzzyMessage = "#7 - The first number is equal to the second number.";
 	}
 	
 	percentNumber = (number1 / number2) * 100;
@@ -272,6 +273,7 @@ dateTime1 = new Date();
 dateTime2 = new Date("July 04, 2014 12:00:00");
 
 // Created function for date math
+// MAKE UP - created a math function that was missing in assignment 3
 var dateCount = function (dateMath1, dateMath2) {
 
 	var dateCounter = dateMath1 - dateMath2;
@@ -279,12 +281,39 @@ var dateCount = function (dateMath1, dateMath2) {
 	var hours = dateCounter / 3600000;
 	var days = hours / 24;
 	daysWhole = parseInt(days);
-	hoursLeft = (days - daysWhole) * 24;
+	var hoursLeft = (days - daysWhole) * 24;
 	hoursLeft = Math.round(hoursLeft);
 	
-	var dateMessage = "It's been " + daysWhole + " days & " + hoursLeft + " hours from " + dateMath2 + " to " + dateMath1;
+	var dateMessage = "#8 - It's been " + daysWhole + " days & " + hoursLeft + " hours from " + dateMath2 + " to " + dateMath1;
 	
 	console.log(dateMessage);
 };
 
 var countedTime = dateCount(dateTime1, dateTime2);
+
+
+
+// #9 Convert string number to actual number
+
+// Created strings for changing string to number
+var stringNum;
+var numberNum;
+
+// Created test strings to determine validity
+stringNum = "365";
+numberNum = "520.67256";
+
+// Created function for changing string to number
+// MAKE UP - a function that were not offered in assignment 3
+
+var changeString = function (stringChange) {
+
+	var numberChange = parseFloat(stringChange);
+	
+	console.log('#9 - The string "' + stringChange + '" is now changed to a number: ' + numberChange + '.');
+
+};
+
+var numberFunction = changeString(stringNum);
+numberFunction = changeString(numberNum);
+
